@@ -4,8 +4,8 @@
 
 
   Complexity--->
-  Worst - o(n^2)  (Sorted Array)
-  best - o(nlogn)
+  Worst - O(n^2)  (Sorted Array)
+  best - O(nlogn)
 */
 
 
