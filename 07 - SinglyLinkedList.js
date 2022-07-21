@@ -1,7 +1,7 @@
 /* A NODE has a current value and next property */
 
 class Node{
-
+  
   constructor(val, next) {
     this.val = val;
     this.next = next;
@@ -20,7 +20,6 @@ class SinglyLinkedList{
   }
 
   push(val) {
-    
     const node = new Node(val)
 
     if (!this.head) {
@@ -60,20 +59,51 @@ class SinglyLinkedList{
       return this;
     }
   }
+
+  shift() {
+    let headCopy = this.head;
+    
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+      this.length = 0;
+      return headCopy;
+    }
+
+    this.head = this.head.next;
+    this.length--;
+    return headCopy;
+
+  }
+
+  unshift(val) {
+    let prevHead = this.head;
+    this.head = new Node(val);
+    this.head.next = prevHead;
+    if (this.length === 0) {
+      this.tail = this.head;
+    }
+    this.length++;
+    return this
+  }
+
 }
 
 
 const linkedList = new SinglyLinkedList()
 
-// console.log(linkedList)
+console.log(linkedList)
 
-// linkedList.push("SOMETHING")
+linkedList.push("SOMETHING")
 
-// console.log(linkedList)
+console.log(linkedList)
 
-// linkedList.push("Anything")
+linkedList.push("Anything")
 
-// console.log(linkedList)
+console.log(linkedList)
+
+
+// console.log("************PUSHING**************")
 
 // linkedList.push("nothing")
 
@@ -83,22 +113,26 @@ const linkedList = new SinglyLinkedList()
 
 // console.log(linkedList)
 
-// console.log("**************************")
+// console.log("************POPPING**************")
 
 // linkedList.pop()
 
 // console.log(linkedList)
 
-// linkedList.pop()
+linkedList.pop()
+
+console.log(linkedList)
+
+linkedList.pop()
+
+console.log(linkedList)
+
+// console.log("************SHIFTING***************")
+
+// linkedList.shift()
 
 // console.log(linkedList)
 
+// console.log("************UNSHIFTING**************")
 
-// linkedList.pop()
-
-// console.log(linkedList)
-
-
-// linkedList.pop()
-
-// console.log(linkedList)
+// linkedList.unshift('69')
