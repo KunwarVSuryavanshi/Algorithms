@@ -35,21 +35,70 @@ class SinglyLinkedList{
     this.length++;
     return this;
   }
+
+  pop() {
+    if (this.length > 0) {
+      let obj = this.head
+
+      if (this.length === 1) {
+        this.head = null;
+        this.tail = null;
+        this.length = 0
+        return this
+      }
+
+      for (let i = 1; i < this.length; i++){
+        if (i === this.length - 1) {
+          this.tail = obj
+          obj.next = null
+          this.length--;
+        }
+        else {
+          obj = obj.next
+        }
+      }
+      return this;
+    }
+  }
 }
 
 
 const linkedList = new SinglyLinkedList()
 
-console.log(linkedList)
+// console.log(linkedList)
 
-linkedList.push("SOMETHING")
+// linkedList.push("SOMETHING")
 
-console.log(linkedList)
+// console.log(linkedList)
 
-linkedList.push("Anything")
+// linkedList.push("Anything")
 
-console.log(linkedList)
+// console.log(linkedList)
 
-linkedList.push("nothing")
+// linkedList.push("nothing")
 
-console.log(linkedList)
+// console.log(linkedList)
+
+// linkedList.push(99)
+
+// console.log(linkedList)
+
+// console.log("**************************")
+
+// linkedList.pop()
+
+// console.log(linkedList)
+
+// linkedList.pop()
+
+// console.log(linkedList)
+
+
+// linkedList.pop()
+
+// console.log(linkedList)
+
+
+// linkedList.pop()
+
+// console.log(linkedList)
