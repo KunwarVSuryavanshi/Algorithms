@@ -87,6 +87,56 @@ class SinglyLinkedList{
     return this
   }
 
+  get(index) {
+    if (index < 0 || index >= this.length) return null
+    let currentNode = this.head;
+    let i = 0;
+    while (i !== index) {
+      currentNode = currentNode.next;
+      i++;
+    }
+    return currentNode;
+  }
+
+  set(index, val) {
+    let node = this.get(index)
+    if (node) {
+      node.val = val
+      this.length++
+      return this;  
+    }
+    return
+  }
+
+  insert(index, val) {
+    if (index < 0 || index > this.length)  return false
+    
+    if (this.length === 0 || index === this.length) { //length = 0 or length = index...simply create new node or push new node 
+      this.push(val)
+      return true
+    }
+
+    if (index === 0){ 
+      this.unshift(val)   //since insert at 0 === unshift
+      return true
+    }
+
+    let node = new Node(val)
+
+    let currentNode = this.get(index - 1) // -1 because we are inserting before that current node
+
+    let tempNextNode = currentNode.next
+
+    currentNode.next = node
+
+    node.next = tempNextNode
+
+    this.length++
+
+    return true
+  }
+
+
 }
 
 
@@ -119,13 +169,13 @@ console.log(linkedList)
 
 // console.log(linkedList)
 
-linkedList.pop()
+// linkedList.pop()
 
-console.log(linkedList)
+// console.log(linkedList)
 
-linkedList.pop()
+// linkedList.pop()
 
-console.log(linkedList)
+// console.log(linkedList)
 
 // console.log("************SHIFTING***************")
 
@@ -136,3 +186,15 @@ console.log(linkedList)
 // console.log("************UNSHIFTING**************")
 
 // linkedList.unshift('69')
+
+// console.log("*************GETTING****************")
+
+// console.log(linkedList.get(0))
+
+// console.log(************SETTING******************)
+
+// console.log(linkedList.set(0, "HELLO"))
+
+linkedList.insert(1, "bazinga")
+
+console.log(linkedList)
