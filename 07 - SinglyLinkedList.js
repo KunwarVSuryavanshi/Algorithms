@@ -136,7 +136,48 @@ class SinglyLinkedList{
     return true
   }
 
+  remove(index) {
+    if (index >= this.length) return
+    if (index === 0) {
+      this.shift();
+      return this;
+    }
+    if (index === this.length - 1) {
+      this.pop()
+      return this;
+    }
+    
+    let prevNode = this.get(index - 1)
+    let nextNode = this.get(index + 1)
+    
+    prevNode.next = nextNode
+    this.length--;
 
+    return this
+  }
+
+  reverse() {
+
+    let node = this.head; // Now head is referencing that particular object (Nodes)...or simply whole node.
+    this.head = this.tail // head value is changed now to tail obj.  ----------> This doesn't mean that node value will change since node was referencing to head....nope a new objects reference is assigned to the head and the node is still referencing that object in the heap.
+    this.tail = node; // tail and node are referencing to the same object in the memory...changing property of one will now change the other one also...but not if it is reassigned to some new value.
+
+    let prev = null; // this will be the next of current node.
+    let ahead; // aheads next will have the value of current node.
+
+    let i = 0;
+    while (i < this.length) {
+      
+      ahead = node.next;
+      node.next = prev;
+      prev = node // For next iteration current node becomes prev one.
+      node = ahead // For next iteration also need to update the current node...so pre updating it with ahead value
+
+      i++;
+    }
+    return this;
+
+  }
 }
 
 
@@ -152,7 +193,9 @@ linkedList.push("Anything")
 
 console.log(linkedList)
 
+linkedList.push("Hmmmmm")
 
+console.log(linkedList)
 // console.log("************PUSHING**************")
 
 // linkedList.push("nothing")
@@ -195,6 +238,50 @@ console.log(linkedList)
 
 // console.log(linkedList.set(0, "HELLO"))
 
-linkedList.insert(1, "bazinga")
+// linkedList.insert(1, "bazinga")
+
+// linkedList.remove(2)
+
+linkedList.reverse()
 
 console.log(linkedList)
+
+
+
+
+/* 
+
+**********************************************************************************************************************************************
+  THIS IS FOR REFERENCE WHENEVER YOU GET CONFUSED WITH REFERENCE (PROP OF JS) AND  DONT UNDERSTAND WHY THINGS ARE NOT GETTING OVERWRITTEN.
+**********************************************************************************************************************************************
+
+
+let obj1 = {
+	a: {
+  	e: '123'
+  },
+  b: '234'
+}
+
+let temp = obj1.a
+obj1.a = 'Somehting'
+
+console.log(obj1, temp)
+
+
+
+*******************
+OUTPUT
+*******************
+
+{
+  a: "Somehting",
+  b: "234"
+},
+{
+  e: "123"
+}
+
+
+EACH OBJECT SEPARATE MEMORY...EVEN THOUGH NESTED.
+*/
