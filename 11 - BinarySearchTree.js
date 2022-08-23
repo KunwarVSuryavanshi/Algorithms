@@ -1,3 +1,9 @@
+/* 
+  For valid and sensible tree (not just a linked list in one direction) the big O complexity is O( log N )
+  Too solid.
+*/
+
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -87,4 +93,4 @@ bst.insert(53)
 
 console.log(bst)
 
-console.log(bst.find(64))
+console.log(bst.find(42))
