@@ -37,4 +37,54 @@ class BinarySearchTree {
       }
     }
   }
+
+  find(val) {
+    if (!val) return 'Pass a value to search the tree';
+
+    let node = this.root;
+
+    while (true) {
+      if (node.value === val) return node;
+      else {
+        if (val > node.value) {
+          if (!node?.right) return 'Value not found :/';
+          node = node.right;
+        } else {
+          if (!node?.left) return 'Value not found :/';
+          node = node.left;
+        } 
+      }
+    }
+  }
 }
+
+
+let bst = new BinarySearchTree()
+
+// console.log(bst)
+
+bst.insert(42)
+
+// console.log(bst)
+
+bst.insert(20)
+
+// console.log(bst)
+
+bst.insert(10)
+
+// console.log(bst)
+
+bst.insert(21)
+
+// console.log(bst)
+
+bst.insert(64)
+
+// console.log(bst)
+
+bst.insert(53)
+
+console.log(bst)
+
+console.log(bst.find(64))
