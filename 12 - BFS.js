@@ -21,7 +21,7 @@ and so on.....
 
 */
 
-// import { BinarySearchTree } from './11 - BinarySearchTree';
+// import { BinarySearchTree } from './11 - BinarySearchTree';      // This gives an error because this is new ES6 syntax, we need to use babel to transpile your ES6 to ES5 so node can run it. Node doesn't support import/export
 
 const BinarySearchTree = require('./11 - BinarySearchTree')
 
