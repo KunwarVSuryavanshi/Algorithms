@@ -91,9 +91,9 @@ bst.insert(64)
 
 bst.insert(53)
 
-console.log(bst)
+// console.log(bst)
 
-console.log(bst.find(42))
+// console.log(bst.find(42))
 
 
 
